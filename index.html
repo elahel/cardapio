@@ -227,16 +227,16 @@
 
   <script>
     const produtos = [
-      { nome: "Batata Frita", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/fritas.jpg", descricao: "Porção de fritas, servida com molho de alho." },
-      { nome: "Batata Frita da Casa", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/fritascasa.jpg", descricao: "Batatas rusticas, servidas com molho de alho ." },
+      { nome: "Batata Frita", precoInteira: 35.00, precoMeia: 17.50, categoria: "porcoes", imagem: "IMG/fritas.jpg", descricao: "Porção de fritas, servida com molho de alho." },
+      { nome: "Batata Frita da Casa", precoInteira: 45.00, precoMeia: 22.50, categoria: "porcoes", imagem: "IMG/fritascasa.jpg", descricao: "Batatas rusticas, servidas com molho de alho ." },
       { nome: "Batata com Calabresa Acebolada", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/meiafritas.jpg", descricao: "Porção meia calabresa meia fritas, acompanhadas de vinagrete, molho de alho e pão." },
-      { nome: "Calabresa Acebolada", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/calabresa.jpg", descricao: "Generosa porção de Calabresa, acompanhadas de vinagrete e pão." },
-      { nome: "Anéis de Cebola", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/aneis.jpg", descricao: "Porção de anéis de cebola, servidas com molho de alho." },
-      { nome: "Iscas de Frango", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/frangochapa.jpg", descricao: "Feito na chapa, com nosso tempero especial; servidas com molho de alho." },
+      { nome: "Calabresa Acebolada", precoInteira: 45.00, precoMeia: 22.50, categoria: "porcoes", imagem: "IMG/calabresa.jpg", descricao: "Generosa porção de Calabresa, acompanhadas de vinagrete e pão." },
+      { nome: "Anéis de Cebola", precoInteira: 39.00, precoMeia: 19.50, categoria: "porcoes", imagem: "IMG/aneis.jpg", descricao: "Porção de anéis de cebola, servidas com molho de alho." },
+      { nome: "Iscas de Frango", precoInteira: 49.00, precoMeia: 24.50, categoria: "porcoes", imagem: "IMG/frangochapa.jpg", descricao: "Feito na chapa, com nosso tempero especial; servidas com molho de alho." },
       { nome: "Pururuca", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/pururuca.jpeg", descricao: "Porção generosa, servida com maionese da casa." },
-      { nome: "Porção de Pastéis", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/pasteis.jpg", descricao: "Sequinhos e nas versões, mista, apenas queijo ou apenas carne; servidas com vinagrete." },
-      { nome: "Peixe Empanado", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/peixe.jpg", descricao: "iscas de Tilapia empanadas na farinha panko, temperadas com nosso tempero especia e servidas com molho de alho." },
-      { nome: "Contra Filé Aperitivo", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/contra.jpg", descricao: "Contra Filé em iscas, com nosso delicioso molho de queijo vinagrete e pão." },
+      { nome: "Porção de Pastéis", precoInteira: 39.00, precoMeia: 19.50, categoria: "porcoes", imagem: "IMG/pasteis.jpg", descricao: "Sequinhos e nas versões, mista, apenas queijo ou apenas carne; servidas com vinagrete." },
+      { nome: "Peixe Empanado", precoInteira: 69.00, precoMeia: 34.50, categoria: "porcoes", imagem: "IMG/peixe.jpg", descricao: "Iscas de Tilapia empanadas na farinha panko, temperadas com nosso tempero especia e servidas com molho de alho." },
+      { nome: "Contra Filé Aperitivo", precoInteira: 89.00, precoMeia: 44.50, categoria: "porcoes", imagem: "IMG/contra.jpg", descricao: "Contra Filé em iscas, com nosso delicioso molho de queijo vinagrete e pão." },
       { nome: "Dadinho de Tapioca", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/dadinho.jpg", descricao: "Porção generosa, servida com maionese da casa." },
       { nome: "Torresmo", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/torresmo.jpg", descricao: "Sequinho e crocante, combina com aquela Cervejinha Gelada." },
       { nome: "Caipirinha", precoInteira: 14.00, categoria: "drinks", imagem: "IMG/caipirinha.jpg", descricao: "Cachaça, limão e açúcar — gelo a gosto." },
@@ -279,6 +279,22 @@
       listaPorcoes.innerHTML = '';
       listaBebidas.innerHTML = '';
       listaDrinks.innerHTML = '';
+
+      // Card de Adicionais fixo no topo da aba Porções
+      const cardAdicionais = `
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-3">🧀 Adicionais</h5>
+              <p class="card-text mb-1">Queijo Mussarela: R$ 8,00</p>
+              <p class="card-text mb-1">Queijo Parmesão: R$ 7,00</p>
+              <p class="card-text mb-1">Queijo Cheddar: R$ 10,00</p>
+              <p class="card-text mb-0">Bacon: R$ 10,00</p>
+            </div>
+          </div>
+        </div>
+      `;
+      listaPorcoes.innerHTML += cardAdicionais;
 
       produtos.forEach(produto => {
         const card = criarCard(produto);
