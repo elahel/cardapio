@@ -8,7 +8,8 @@
   <link rel="icon" href="IMG/Logo R&J.png" type="image/png">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Righteous&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Righteous&family=Special+Elite&display=swap"
+    rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -26,7 +27,8 @@
     }
 
     .navbar-brand {
-      font-family: 'Special Elite', monospace; /* cabeçalho estilo máquina de escrever */
+      font-family: 'Special Elite', monospace;
+      /* cabeçalho estilo máquina de escrever */
       font-weight: 700;
       font-size: 1.6rem;
       color: #000000 !important;
@@ -56,12 +58,14 @@
 
     /* Faz o SVG ficar como fundo da área da aba (tab-pane) */
     .tab-pane {
+      background-attachment: fixed;
+      /* parallax */
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
       min-height: 100vh;
-      padding: 0;
+      padding: 1rem 0;
     }
 
     /* Ajuste de background por aba */
@@ -77,19 +81,23 @@
       background-image: url("IMG/drinks.svg");
     }
 
-    /* Cards */
+    /* Cards transparentes */
     .card {
       border: none;
       border-radius: 0;
-      background: transparent !important;
-      backdrop-filter: none !important;
-      box-shadow: none !important;
+      background: rgba(255, 255, 255, 0.0);
+      /* totalmente transparente */
+      box-shadow: none;
+      /* remove sombra */
       transition: transform 0.18s;
       cursor: pointer;
+      margin-bottom: 1.5rem;
     }
 
     .card:hover {
       transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.1);
+      /* leve destaque ao passar o mouse */
     }
 
     .card-img-top {
@@ -100,12 +108,14 @@
     }
 
     .card-title {
-      font-family: 'Righteous', cursive; /* nomes dos produtos */
+      font-family: 'Righteous', cursive;
+      /* nomes dos produtos */
       font-weight: 700;
     }
 
     .card-text {
-      font-family: 'Caveat', cursive; /* descrições */
+      font-family: 'Caveat', cursive;
+      /* descrições */
       font-size: 0.95rem;
     }
 
@@ -137,12 +147,14 @@
       }
 
       .navbar-brand {
-        flex-direction: column; /* logo em cima, texto embaixo */
+        flex-direction: column;
+        /* logo em cima, texto embaixo */
         text-align: center;
       }
 
       .navbar-brand img {
-        margin-bottom: 0.25rem; /* espaçamento entre logo e texto */
+        margin-bottom: 0.25rem;
+        /* espaçamento entre logo e texto */
       }
     }
   </style>
@@ -166,15 +178,15 @@
     <ul class="nav nav-tabs" id="tabsProdutos" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="tab-porcoes" data-bs-toggle="tab" data-bs-target="#porcoes" type="button"
-          role="tab">Porções</button>
+          role="tab">🍟 Porções</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-bebidas" data-bs-toggle="tab" data-bs-target="#bebidas" type="button"
-          role="tab">Bebidas</button>
+          role="tab">🥤 Bebidas</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-drinks" data-bs-toggle="tab" data-bs-target="#drinks" type="button"
-          role="tab">Drinks</button>
+          role="tab">🍹 Drinks</button>
       </li>
     </ul>
 
@@ -208,21 +220,22 @@
 
   <script>
     const produtos = [
-      { nome: "Batata Frita", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/fritas.jpg", descricao: "Porção generosa, servida com maionese da casa." },
-      { nome: "Batata Frita da Casa", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/fritascasa.jpg", descricao: "Versão especial com um toque de lemon peper." },
-      { nome: "Batata com Calabresa Acebolada", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/meiafritas.jpg", descricao: "Porção generosa, meia calabresa meia fritas." },
-      { nome: "Calabresa Acebolada", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/calabresa.jpg", descricao: "Generosa porção de Calabresa." },
-      { nome: "Anéis de Cebola", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/aneis.jpg", descricao: "Porção de anéis de cebola com molho especial da casa." },
-      { nome: "Iscas de Frango", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/frangochapa.jpg", descricao: "Feito na chapa, com nosso tempero especial." },
+      { nome: "Batata Frita", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/fritas.jpg", descricao: "Porção de fritas, servida com molho de alho." },
+      { nome: "Batata Frita da Casa", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/fritascasa.jpg", descricao: "Batatas rusticas, servidas com molho de alho ." },
+      { nome: "Batata com Calabresa Acebolada", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/meiafritas.jpg", descricao: "Porção meia calabresa meia fritas, acompanhadas de vinagrete, molho de alho e pão." },
+      { nome: "Calabresa Acebolada", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/calabresa.jpg", descricao: "Generosa porção de Calabresa, acompanhadas de vinagrete e pão." },
+      { nome: "Anéis de Cebola", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/aneis.jpg", descricao: "Porção de anéis de cebola, servidas com molho de alho." },
+      {
+        nome: "Iscas de Frango", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/frangochapa.jpg", descricao: "Feito na chapa, com nosso tempero especial; servidas com molho de alho." },
       { nome: "Pururuca", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/pururuca.jpeg", descricao: "Porção generosa, servida com maionese da casa." },
-      { nome: "Porção de Pastéis", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/pasteis.jpg", descricao: "Sequinhos e nas versões, mista, apenas queijo ou apenas carne." },
-      { nome: "Peixe Empanado", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/peixe.jpg", descricao: "iscas de Tilapia empanadas na farinha panko, temperadas com nosso tempero especial." },
-      { nome: "Contra Filé Aperitivo", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/contra.jpg", descricao: "Contra Filé em iscas, com nosso delicioso molho de queijo." },
+      { nome: "Porção de Pastéis", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/pasteis.jpg", descricao: "Sequinhos e nas versões, mista, apenas queijo ou apenas carne; servidas com vinagrete." },
+      { nome: "Peixe Empanado", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/peixe.jpg", descricao: "iscas de Tilapia empanadas na farinha panko, temperadas com nosso tempero especia e servidas com molho de alho." },
+      { nome: "Contra Filé Aperitivo", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/contra.jpg", descricao: "Contra Filé em iscas, com nosso delicioso molho de queijo vinagrete e pão." },
       { nome: "Dadinho de Tapioca", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/dadinho.jpg", descricao: "Porção generosa, servida com maionese da casa." },
       { nome: "Torresmo", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/torresmo.jpg", descricao: "Sequinho e crocante, combina com aquela Cervejinha Gelada." },
       { nome: "Caipirinha", precoInteira: 14.00, categoria: "drinks", imagem: "IMG/caipirinha.jpg", descricao: "Cachaça, limão e açúcar — gelo a gosto." },
       { nome: "Refrigerante Lata", precoInteira: 6.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." }
-    ];
+];
 
     function abrirModal(produto) {
       document.getElementById("modal-img").src = produto.imagem;
