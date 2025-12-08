@@ -28,13 +28,11 @@
 
     .navbar-brand {
       font-family: 'Special Elite', monospace;
-      /* cabeçalho estilo máquina de escrever */
       font-weight: 700;
       font-size: 1.6rem;
       color: #000000 !important;
     }
 
-    /* Abas com efeito vidro fosco */
     .nav-tabs .nav-link {
       position: relative;
       border: none !important;
@@ -56,10 +54,8 @@
       font-weight: 700;
     }
 
-    /* Faz o SVG ficar como fundo da área da aba (tab-pane) */
     .tab-pane {
       background-attachment: fixed;
-      /* parallax */
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -68,27 +64,15 @@
       padding: 1rem 0;
     }
 
-    /* Ajuste de background por aba */
-    #porcoes {
-      background-image: url("IMG/porcao.svg");
-    }
+    #porcoes { background-image: url("IMG/porcao.svg"); }
+    #bebidas { background-image: url("IMG/bebidas.svg"); }
+    #drinks { background-image: url("IMG/drinks.svg"); }
 
-    #bebidas {
-      background-image: url("IMG/bebidas.svg");
-    }
-
-    #drinks {
-      background-image: url("IMG/drinks.svg");
-    }
-
-    /* Cards transparentes */
     .card {
       border: none;
       border-radius: 0;
-      background: rgba(255, 255, 255, 0.0);
-      /* totalmente transparente */
+      background: rgba(255, 255, 255, 0);
       box-shadow: none;
-      /* remove sombra */
       transition: transform 0.18s;
       cursor: pointer;
       margin-bottom: 1.5rem;
@@ -97,7 +81,6 @@
     .card:hover {
       transform: scale(1.03);
       background: rgba(255, 255, 255, 0.1);
-      /* leve destaque ao passar o mouse */
     }
 
     .card-img-top {
@@ -109,13 +92,11 @@
 
     .card-title {
       font-family: 'Righteous', cursive;
-      /* nomes dos produtos */
       font-weight: 700;
     }
 
     .card-text {
       font-family: 'Caveat', cursive;
-      /* descrições */
       font-size: 0.95rem;
     }
 
@@ -134,27 +115,38 @@
       outline: none;
     }
 
+    /* ---- MUDANÇAS MOBILE ---- */
     @media (max-width: 575px) {
       .tab-pane {
-        background-size: 180px auto;
-        background-position: center bottom;
-        min-height: 220px;
+        min-height: calc(100vh - 130px); /* ajusta altura da aba para preencher a tela */
+        background-size: cover;
+        background-position: center center;
       }
 
-      /* centralizar logo e nome da empresa no cabeçalho */
+      .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto; /* scroll horizontal se não couber */
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .nav-tabs .nav-link {
+        flex: 0 0 auto;
+        margin-right: 0.5rem;
+        white-space: nowrap;
+      }
+
+      /* centralizar logo e nome da empresa */
       .navbar .container {
         justify-content: center !important;
       }
 
       .navbar-brand {
         flex-direction: column;
-        /* logo em cima, texto embaixo */
         text-align: center;
       }
 
       .navbar-brand img {
         margin-bottom: 0.25rem;
-        /* espaçamento entre logo e texto */
       }
     }
   </style>
@@ -225,8 +217,7 @@
       { nome: "Batata com Calabresa Acebolada", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/meiafritas.jpg", descricao: "Porção meia calabresa meia fritas, acompanhadas de vinagrete, molho de alho e pão." },
       { nome: "Calabresa Acebolada", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/calabresa.jpg", descricao: "Generosa porção de Calabresa, acompanhadas de vinagrete e pão." },
       { nome: "Anéis de Cebola", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/aneis.jpg", descricao: "Porção de anéis de cebola, servidas com molho de alho." },
-      {
-        nome: "Iscas de Frango", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/frangochapa.jpg", descricao: "Feito na chapa, com nosso tempero especial; servidas com molho de alho." },
+      { nome: "Iscas de Frango", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/frangochapa.jpg", descricao: "Feito na chapa, com nosso tempero especial; servidas com molho de alho." },
       { nome: "Pururuca", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/pururuca.jpeg", descricao: "Porção generosa, servida com maionese da casa." },
       { nome: "Porção de Pastéis", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/pasteis.jpg", descricao: "Sequinhos e nas versões, mista, apenas queijo ou apenas carne; servidas com vinagrete." },
       { nome: "Peixe Empanado", precoInteira: 18.00, precoMeia: 10.00, categoria: "porcoes", imagem: "IMG/peixe.jpg", descricao: "iscas de Tilapia empanadas na farinha panko, temperadas com nosso tempero especia e servidas com molho de alho." },
@@ -235,7 +226,7 @@
       { nome: "Torresmo", precoInteira: 22.00, precoMeia: 12.00, categoria: "porcoes", imagem: "IMG/torresmo.jpg", descricao: "Sequinho e crocante, combina com aquela Cervejinha Gelada." },
       { nome: "Caipirinha", precoInteira: 14.00, categoria: "drinks", imagem: "IMG/caipirinha.jpg", descricao: "Cachaça, limão e açúcar — gelo a gosto." },
       { nome: "Refrigerante Lata", precoInteira: 6.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." }
-];
+    ];
 
     function abrirModal(produto) {
       document.getElementById("modal-img").src = produto.imagem;
@@ -253,7 +244,7 @@
       const produtoSafe = encodeURIComponent(JSON.stringify(produto));
       return `
         <div class="col-md-4 mb-4 produto" data-nome="${(produto.nome || '').toLowerCase()}">
-          <div class="card h-100 shadow-sm" onclick='abrirModal(JSON.parse(decodeURIComponent("${produtoSafe}")))'>
+          <div class="card h-100 shadow-sm" onclick='abrirModal(JSON.parse(decodeURIComponent("${produtoSafe}")))' >
             <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
             <div class="card-body text-center">
               <h5 class="card-title mb-2">${produto.nome}</h5>
