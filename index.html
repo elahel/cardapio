@@ -21,17 +21,23 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    /* HEADER COM IMAGEM */
     .navbar {
-      background-color: #EAB028;
-      border-bottom: 3px solid #E6A716;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url("IMG/header.png") center / cover no-repeat;
+
+      border-bottom: 3px solid rgba(255, 255, 255, 0.25);
       z-index: 1030;
+      min-height: 80px;
     }
 
     .navbar-brand {
       font-family: 'Special Elite', monospace;
       font-weight: 700;
       font-size: 1.6rem;
-      color: #000000 !important;
+      color: #ffffff !important;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
     }
 
     /* Barra de pesquisa + abas fixas */
@@ -64,9 +70,8 @@
     }
 
     .nav-tabs .nav-link {
-      position: relative;
       border: none !important;
-      color: #000000 !important;
+      color: #000 !important;
       font-weight: 600;
       background: rgba(255, 255, 255, 0.12);
       border-radius: 12px;
@@ -74,38 +79,28 @@
       padding: 12px 16px;
     }
 
-    .nav-tabs .nav-link:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
-
     .nav-tabs .nav-link.active {
       background: rgba(255, 255, 255, 0.45);
-      color: #000000 !important;
       font-weight: 700;
     }
 
     .tab-pane {
       background-attachment: fixed;
-      background-position: center center;
-      background-repeat: no-repeat;
       background-size: cover;
-      width: 100%;
       min-height: 100vh;
       padding: 1rem 0;
     }
 
     #porcoes { background-image: url("IMG/porcao.svg"); }
     #bebidas { background-image: url("IMG/bebidas.svg"); }
-    #drinks { background-image: url("IMG/drinks.svg"); }
+    #drinks  { background-image: url("IMG/drinks.svg"); }
 
     .card {
       border: none;
-      border-radius: 0;
-      background: rgba(255, 255, 255, 0);
+      background: transparent;
       box-shadow: none;
       transition: transform 0.18s;
       cursor: pointer;
-      margin-bottom: 1.5rem;
     }
 
     .card:hover {
@@ -117,12 +112,10 @@
       max-height: 180px;
       object-fit: cover;
       border-radius: 16px 16px 0 0;
-      width: 100%;
     }
 
     .card-title {
       font-family: 'Righteous', cursive;
-      font-weight: 700;
     }
 
     .card-text {
@@ -131,24 +124,6 @@
     }
 
     @media (max-width: 575px) {
-      .tab-pane {
-        min-height: calc(100vh - 170px);
-        background-size: cover;
-        background-position: center center;
-      }
-
-      .nav-tabs {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .nav-tabs .nav-link {
-        flex: 0 0 auto;
-        margin-right: 0.5rem;
-        white-space: nowrap;
-      }
-
       .navbar .container {
         justify-content: center !important;
       }
@@ -164,7 +139,6 @@
     }
   </style>
 </head>
-
 <body>
 
   <nav class="navbar fixed-top navbar-light shadow-sm">
