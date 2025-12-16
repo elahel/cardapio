@@ -99,16 +99,23 @@
       padding: 1rem 0;
     }
 
+    /* 🔥 Parallax consistente entre abas */
+    .tab-pane.parallax {
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     #porcoes {
       background-image: url("IMG/porcao.svg");
     }
 
     #bebidas {
-      background-image: url("IMG/bebidas.svg");
+      background-image: url("IMG/bebidas.png");
     }
 
     #drinks {
-      background-image: url("IMG/drinks.svg");
+      background-image: url("IMG/bebidas.png");
     }
 
     .card {
@@ -193,13 +200,13 @@
     </div>
 
     <div class="tab-content pt-3">
-      <div class="tab-pane fade show active" id="porcoes" role="tabpanel">
+      <div class="tab-pane fade show active parallax" id="porcoes" role="tabpanel">
         <div class="row" id="lista-porcoes"></div>
       </div>
-      <div class="tab-pane fade" id="bebidas" role="tabpanel">
+      <div class="tab-pane fade parallax" id="bebidas" role="tabpanel">
         <div class="row" id="lista-bebidas"></div>
       </div>
-      <div class="tab-pane fade" id="drinks" role="tabpanel">
+      <div class="tab-pane fade parallax" id="drinks" role="tabpanel">
         <div class="row" id="lista-drinks"></div>
       </div>
     </div>
@@ -263,7 +270,26 @@
       { nome: "Soda Italiana", precoInteira: 14.00, categoria: "drinks", imagem: "IMG/soda.jpg", descricao: "Xarope (Blue curaçao, Frutas vermelhas, Cereja, Limão Siciliano, Maracujá, Tangerina, Maçã Verde e Morango) e Água com Gás." },
       { nome: "Virgin Mojito", precoInteira: 14.00, categoria: "drinks", imagem: "IMG/virgin.jpg", descricao: "Limão, Hotelã, Açúcar e Sprite ou Água com Gás" },
       { nome: "Whisky Sour", precoInteira: 14.00, categoria: "drinks", imagem: "IMG/sour.jpg", descricao: "Bourbon, Siciliano, Açúcar e Clara de ovo pasteurizada." },
-      { nome: "Refrigerante Lata", precoInteira: 6.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." }
+      { nome: "Água", precoInteira: 7.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Água com Gás", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Água Tônica", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Água Tônica Zero", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Coca-Cola", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Coca-Cola Zero", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Guaraná", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Guaraná Zero", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Sprite", precoInteira: 8.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Suco de Uva", precoInteira: 7.00, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Heineken", precoInteira: 18.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Original", precoInteira: 17.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Amstel", precoInteira: 15.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Skol", precoInteira: 15.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Antártica", precoInteira: 15.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Brahma", precoInteira: 15.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Chopp de Vinho", precoInteira: 18.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Corona Long Neck", precoInteira: 12.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Stella Artois Long Neck", precoInteira: 12.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
+      { nome: "Heineken 0.0 Long Neck", precoInteira: 12.90, categoria: "bebidas", imagem: "IMG/refrigerante.jpg", descricao: "Lata gelada 350ml." },
     ];
 
     function abrirModal(produto) {
